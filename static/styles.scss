@@ -4,21 +4,41 @@
 $cat: Rokkitt;
 $item: "Open Sans";
 
-$d-dark:;
-$d-light:;
-$c-dark:;
-$c-light:;
+$d-dark: #006C8F;
+$d-light: #92B6C2;
+$c-dark: #B87126;
+$c-light: #F7C490;
+
+body {
+   margin: 0;
+   padding: 0;
+}
 
 .cat {
    font-family: $cat;
+   padding: .2em .5em;
+   #Dewick &{
+      background-color: $d-dark;
+   }
+
+   #Carmichael &{
+      background-color: $c-dark;
+   }
 }
 
 ul {
    list-style: none;
-   padding-left: 1em;
-   background-color:
+   padding: 0;
+   margin: 0;
+   &#Dewick {
+      background-color: $d-light;
+   }
+   &#Carmichael{
+      background-color: $c-light;
+   }
 }
 
 .item {
    font-family: $item;
+   margin-left: 1em;
 }
