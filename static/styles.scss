@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Rokkitt');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+$cat: Rokkitt;
+$item: "Open Sans";
+
+$d-dark:;
+$d-light:;
+$c-dark:;
+$c-light:;
+
+.cat {
+   font-family: $cat;
+}
+
+ul {
+   list-style: none;
+   padding-left: 1em;
+   background-color:
+}
+
+.item {
+   font-family: $item;
+}

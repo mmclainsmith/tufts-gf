@@ -1,0 +1,33 @@
+<html>
+<head>
+   <title>GF Menus</title>
+   <link rel="stylesheet" type="text/css" href="/static/styles.min.css">
+</head>
+<body>
+   {% set navigation_bar = [
+    ('/1', 'breakfast', 'Breakfast'),
+    ('/2', 'lunch', 'Lunch'),
+    ('/3', 'dinner', 'Dinner')
+    ] -%}
+
+   <nav>
+   {% for href, id, caption in navigation_bar %}
+     <a href="{{ href|e }}" {% if id == active %} class="active"{% endif
+     %}>{{ caption|e }}</a>
+   {% endfor %}
+   </nav>
+
+   {% for location in menu %}
+      <ul id={{location}}>{{location}}
+         {% for type in menu[location] %}
+            <li class="cat"> {{ type["name"] }} </li>
+            <ul>
+               {% for item in type["items"] %}
+                  <li class="item">{{item}}</li>
+               {% endfor %}
+            </ul>
+         {% endfor %}
+      </ul>
+   {% endfor %}
+</body>
+</html>
