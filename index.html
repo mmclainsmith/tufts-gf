@@ -51,8 +51,8 @@
                         var carm = document.getElementById("Carmichael");
                         var dew = document.getElementById("Dewick");
 
-                        Hammer(dew).on("swipeleft pan", showCarm);
-                        Hammer(carm).on("swiperight pan", showDewick);
+                        Hammer(dew).on("swipeleft panleft", showCarm);
+                        Hammer(carm).on("swiperight panright", showDewick);
 
                         function showDewick() {
                                 $("main").animate({right : "0%"});
