@@ -5,6 +5,8 @@ https://spartan-thunder-180219.appspot.com
 Displays the day's GF options in the Tufts dining halls.
 
 Problem:
+Too many steps to get GF menus, bad UI
+
 Steps to get GF Menu through Tufts app
 * Select dining
 * Select location
