@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html>
 <head>
         <title>GF Menus</title>
@@ -10,8 +11,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+        <script type="text/javascript" src="/static/hammer.min.js"></script>
 </head>
 <body>
         {% set navigation_bar = [
@@ -44,19 +46,21 @@
                 {% endfor %}
         </main>
         <script>
-                $.mobile.autoInitializePage = false;
-                
                 $(function(){
+                        var carm = document.getElementById("Carmichael");
+                        var dew = document.getElementById("Dewick");
 
-                // Bind the swipeHandler callback function to the swipe event on div.box
-                        $("main").on("swipeleft", function(event){
-                                $("main").animate({right : "100%"});
-                                console.log("left!");
-                        });
-                        $("main").on("swiperight", function(event){
+                        Hammer(dew).on("swipeleft doubletap tap", showCarm);
+                        Hammer(carm).on("swiperight doubletap tap", showDewick);
+
+                        function showDewick() {
                                 $("main").animate({right : "0%"});
-                                console.log("right!");
-                        });
+
+                        };
+
+                        function showCarm() {
+                                $("main").animate({right : "100%"});
+                        };
                 });
         </script>
 </body>
