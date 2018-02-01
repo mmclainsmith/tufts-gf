@@ -1,44 +1,88 @@
-@import url('https://fonts.googleapis.com/css?family=Rokkitt');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
-$cat: Rokkitt;
-$item: "Open Sans";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
+@import url('https://fonts.googleapis.com/css?family=Rokkitt:100');
 
 $d-dark: #006C8F;
 $d-light: #92B6C2;
 $c-dark: #B87126;
 $c-light: #F7C490;
+$shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+nav {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+
+}
+
+a {
+        -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+                flex-grow: 1;
+        display: inline-block;
+        background: black;
+        color: white;
+        margin: 0;
+        padding: .5em;
+        text-align: center;
+        text-decoration: none;
+        
+        &.active {
+                color:blue;
+        }
+}
 
 body {
    margin: 0;
    padding: 0;
+   font-family: "Open Sans";
 }
 
-.cat {
-   font-family: $cat;
-   padding: .2em .5em;
-   #Dewick &{
+h2 {
+        font-family: 'Rokkitt';
+        letter-spacing: 7px;
+        text-align: center;
+        color: white;
+        margin: 2px;
+        font-size: 150%;
+}
+
+div.loc {
+   padding: 3px;
+   margin: 0;
+   &#Dewick {
       background-color: $d-dark;
    }
-
-   #Carmichael &{
+   &#Carmichael{
       background-color: $c-dark;
    }
 }
 
-ul {
-   list-style: none;
-   padding: 0;
+
+div.cat {
+        margin: 6px;
+        background-color: white;
+        border-radius: 6px;
+        -webkit-box-shadow: $shadow;
+}
+
+h3 {
+   font-weight: 600;
+   padding: .2em .5em;
    margin: 0;
-   &#Dewick {
+   #Dewick &{
       background-color: $d-light;
    }
-   &#Carmichael{
+
+   #Carmichael &{
       background-color: $c-light;
    }
 }
 
+ul {
+        margin: 0 0 0 8px;
+        padding: 8px;
+}
+
 .item {
-   font-family: $item;
    margin-left: 1em;
 }

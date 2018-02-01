@@ -1,37 +1,43 @@
+<!doctype html>
 <html>
 <head>
-   <title>GF Menus</title>
-   <link rel="stylesheet" type="text/css" href="/static/styles.min.css">
-   <link rel="apple-touch-icon" sizes="57x57" href="/static/icon-57x57.png" />
-   <link rel="apple-touch-icon" sizes="72x72" href="/static/icon-72x72.png" />
-   <link rel="apple-touch-icon" sizes="114x114" href="/static/icon-114x114.png" />
-   <link rel="apple-touch-icon" sizes="144x144" href="/static/icon-144x144.png" />
+        <title>GF Menus</title>
+        <link rel="stylesheet" type="text/css" href="/static/styles.min.css">
+        <link rel="apple-touch-icon" sizes="57x57" href="/static/icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/static/icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/static/icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/static/icon-144x144.png" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-   {% set navigation_bar = [
-    ('/1', 'breakfast', 'Breakfast'),
-    ('/2', 'lunch', 'Lunch'),
-    ('/3', 'dinner', 'Dinner')
-    ] -%}
+        {% set navigation_bar = [
+                ('1', 'breakfast', 'Breakfast'),
+                ('2', 'lunch', 'Lunch'),
+                ('3', 'dinner', 'Dinner')
+                ] -%}
+        <nav>
+                {% for href, id, caption in navigation_bar %}
+                <a href="/{{ href|e }}" {% if href == active %} class="active"{% endif%}>
+                        {{ caption|e }}
+                </a>
+                {% endfor %}
+        </nav>
 
-   <nav>
-   {% for href, id, caption in navigation_bar %}
-     <a href="{{ href|e }}" {% if id == active %} class="active"{% endif
-     %}>{{ caption|e }}</a>
-   {% endfor %}
-   </nav>
-
-   {% for location in menu %}
-      <ul id={{location}}>{{location}}
-         {% for type in menu[location] %}
-            <li class="cat"> {{ type["name"] }} </li>
-            <ul>
-               {% for item in type["items"] %}
-                  <li class="item">{{item}}</li>
-               {% endfor %}
-            </ul>
-         {% endfor %}
-      </ul>
-   {% endfor %}
+        {% for location in menu %}
+        <div id={{location}} class="loc">
+                <h2> {{location}} </h2>
+                {% for type in menu[location] %}
+                <div class = "cat">
+                        <h3> {{ type["name"] }} </h3>
+                        <ul>
+                                {% for item in type["items"] %}
+                                <li class="item">{{item}}</li>
+                                {% endfor %}
+                        </ul>
+                </div>
+                {% endfor %}
+        </div>
+        {% endfor %}
 </body>
 </html>
