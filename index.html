@@ -9,10 +9,9 @@
         <link rel="apple-touch-icon" sizes="114x114" href="/static/icon-114x114.png" />
         <link rel="apple-touch-icon" sizes="144x144" href="/static/icon-144x144.png" />
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-
         <script type="text/javascript" src="/static/hammer.min.js"></script>
 </head>
 <body>
@@ -28,30 +27,32 @@
                 </a>
                 {% endfor %}
         </nav>
-        <main>
-                {% for location in menu %}
-                <div id={{location}} class="loc">
-                        <h2> {{location}} </h2>
-                        {% for type in menu[location] %}
-                        <div class = "cat">
-                                <h3> {{ type["name"] }} </h3>
-                                <ul>
-                                        {% for item in type["items"] %}
-                                        <li class="item">{{item}}</li>
-                                        {% endfor %}
-                                </ul>
+        <div id = wrapper>
+                <main>
+                        {% for location in menu %}
+                        <div id={{location}} class="loc">
+                                <h2> {{location}} </h2>
+                                {% for type in menu[location] %}
+                                <div class = "cat">
+                                        <h3> {{ type["name"] }} </h3>
+                                        <ul>
+                                                {% for item in type["items"] %}
+                                                <li class="item">{{item}}</li>
+                                                {% endfor %}
+                                        </ul>
+                                </div>
+                                {% endfor %}
                         </div>
                         {% endfor %}
-                </div>
-                {% endfor %}
-        </main>
+                </main>
+        </div>
         <script>
                 $(function(){
                         var carm = document.getElementById("Carmichael");
                         var dew = document.getElementById("Dewick");
 
-                        Hammer(dew).on("swipeleft doubletap tap", showCarm);
-                        Hammer(carm).on("swiperight doubletap tap", showDewick);
+                        Hammer(dew).on("swipeleft pan", showCarm);
+                        Hammer(carm).on("swiperight pan", showDewick);
 
                         function showDewick() {
                                 $("main").animate({right : "0%"});
