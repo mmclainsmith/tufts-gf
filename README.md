@@ -22,3 +22,5 @@ Site is hosted on Google App Engine and uses the webapp2 framework with python. 
 
 To do:
 * Switch to flask?
+* Fix sliding using [this tutorial?](https://blog.envylabs.com/build-your-own-touch-slider-with-hammerjs-af99665d2869)
+* Cache daily menus?
